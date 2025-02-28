@@ -7,15 +7,11 @@ async function createUser(name, age, last, fileURL) {
     throw new Error("User is not authenticated");
   }
 
-  if (!name || !age || !last) {
-    throw new Error("All fields are required");
-  }
-
   try {
     const docRef = await addDoc(collection(db, "informations"), {
-      name: name,
-      age: age,
-      last: last,
+      name: name || "",
+      age: age || "",
+      last: last || "",
       fileURL: fileURL || "",
       creater: currentUser.email
     });

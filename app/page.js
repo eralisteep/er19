@@ -34,7 +34,7 @@ export default function Home() {
   const [isSoundEnabled, setIsSoundEnabled] = useState(false); 
   const [animation, setAnimation] = useState("");
   const { theme, setTheme } = useTheme();
-  const [isCreater, setIsCreater] = useState(false);
+  const [isCreater,setIsCreater] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [createrEmails, setCreaterEmails] = useState({});
 
@@ -161,7 +161,14 @@ export default function Home() {
             "Content-Type": "multipart/form-data"
           }
         });
-        fileURL = response.data.result.document.file_id;
+        console.log(response.data);
+  
+        if (response.data && response.data.result && response.data.result.document && response.data.result.document.file_id) {
+          fileURL = response.data.result.document.file_id;
+        } else {
+          console.error("Ошибка: file_id не найден в ответе Telegram API");
+          console.log("Ответ от Telegram API:", response.data);
+        }
       } catch (error) {
         console.error("Ошибка загрузки файла в Telegram:", error);
       }
@@ -184,7 +191,6 @@ export default function Home() {
     setLast("");
     setFile(null);
   };
-
   const handleAnimation = () => {
     if (animation === "") {
       setAnimation("spin");
@@ -195,6 +201,7 @@ export default function Home() {
     setName(user.name);
     setAge(user.age);
     setLast(user.last);
+    setFile(user.fileURL);
     setEditUserId(user.id);
   };
 
@@ -202,6 +209,7 @@ export default function Home() {
     setName("");
     setAge("");
     setLast("");
+    setFile("");
     setEditUserId(null);
   };
 

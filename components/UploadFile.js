@@ -13,7 +13,7 @@ const getFilePath = async (fileId) => {
   }
 };
 
-export default function UploadFile({ fileId }) {
+export default function UserFile({ fileId }) {
   const [filePath, setFilePath] = useState(null);
 
   const handleGetFile = async () => {
@@ -30,8 +30,36 @@ export default function UploadFile({ fileId }) {
               📥 Скачать файл
             </a>
           </p>
+
+          {/* Изображения */}
           {filePath.match(/\.(jpeg|jpg|png|gif)$/i) && (
             <img src={filePath} alt="Uploaded File" style={{ maxWidth: "300px", marginTop: "10px" }} />
+          )}
+
+          {/* Видео */}
+          {filePath.match(/\.(webm|mp4)$/i) && (
+            <video controls style={{ maxWidth: "300px", marginTop: "10px" }}>
+              <source src={filePath} type="video/webm" />
+              Ваш браузер не поддерживает видео.
+            </video>
+          )}
+
+          {/* Аудио */}
+          {filePath.match(/\.(ogg|mp3|wav)$/i) && (
+            <audio controls style={{ marginTop: "10px" }}>
+              <source src={filePath} type="audio/ogg" />
+              Ваш браузер не поддерживает аудио.
+            </audio>
+          )}
+
+          {/* PDF */}
+          {filePath.match(/\.pdf$/i) && (
+            <iframe src={filePath} style={{ width: "100%", height: "500px", marginTop: "10px" }}></iframe>
+          )}
+
+          {/* Остальные файлы */}
+          {!filePath.match(/\.(jpeg|jpg|png|gif|webm|mp4|ogg|mp3|wav|pdf)$/i) && (
+            <p>Файл не поддерживается для предпросмотра.</p>
           )}
         </>
       ) : (
