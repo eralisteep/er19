@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Eye, RotateCcw, Upload } from "lucide-react";
 
 const TELEGRAM_BOT_TOKEN = "7629632078:AAFwGMwD36V1-NyDvLoPhc9ZMrxr2LD96GI";
 
@@ -27,10 +28,10 @@ export default function UserFile({ fileId }) {
         <>
           <p>
             <a href={filePath} target="_blank" rel="noopener noreferrer">
-              📥 Скачать файл
+              <Upload/>
             </a>
+            <RotateCcw onClick={handleGetFile}>файл обновить файл</RotateCcw>
           </p>
-
           {/* Изображения */}
           {filePath.match(/\.(jpeg|jpg|png|gif)$/i) && (
             <img src={filePath} alt="Uploaded File" style={{ maxWidth: "300px", marginTop: "10px" }} />
@@ -63,7 +64,7 @@ export default function UserFile({ fileId }) {
           )}
         </>
       ) : (
-        <button onClick={handleGetFile}>🔍 Загрузить файл</button>
+        <Eye onClick={handleGetFile}>🔍 Загрузить файл</Eye>
       )}
     </div>
   );
