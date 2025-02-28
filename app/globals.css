@@ -9,6 +9,7 @@ html.light {
 }
 html.dark body {
   background-image: url('/void.png');
+  width: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
