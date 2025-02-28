@@ -7,10 +7,13 @@ html.light {
   --background: #ffffff;
   --foreground: #171717;
 }
-html.dark body{
+html.dark body {
   background-image: url('/void.png');
-  background-size: 100vw cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 body {
   background-color: var(--background);

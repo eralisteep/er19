@@ -46,7 +46,7 @@ export default function UserFile({ fileId }) {
           )}
 
           {/* Аудио */}
-          {filePath.match(/\.(ogg|mp3|wav)$/i) && (
+          {filePath.match(/\.(ogg|mp3|wav|opus)$/i) && (
             <audio controls style={{ marginTop: "10px" }}>
               <source src={filePath} type="audio/ogg" />
               Ваш браузер не поддерживает аудио.

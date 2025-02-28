@@ -191,6 +191,7 @@ export default function Home() {
     setLast("");
     setFile(null);
   };
+
   const handleAnimation = () => {
     if (animation === "") {
       setAnimation("spin");
