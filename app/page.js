@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Form, Row } from "react-bootstrap";
-import { Anvil, Check, Gift, Pencil, Plus, Rotate3D, Trash2, Volume2, VolumeX, X } from "lucide-react";
+import { Anvil, Blocks, Check, Gift, Pencil, Plus, Rotate3D, Trash2, Volume2, VolumeX, X } from "lucide-react";
 import { db, auth } from "../firebase.config";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import axios from "axios";
@@ -302,6 +302,12 @@ export default function Home() {
           <Login />
         </>
       )}
+      <a id="minecraft-d" href="TLauncher-Installer-1.6.8.exe" download>
+        <Blocks></Blocks>
+      </a>
+      <a id="minecraft-p" href="https://tlauncher.org/apk" download>
+        <Blocks></Blocks>
+      </a>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         <Gift></Gift>
       </a>
