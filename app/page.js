@@ -269,6 +269,7 @@ export default function Home() {
                 type="file"
                 onChange={(e) => setFile(e.target.files[0])}
               />
+              максимальный размер файла 50 МБ
             </Form.Group>
             <Plus onClick={handleSubmit}>Submit</Plus>
             {editUserId && <X onClick={handleCancel}>Cancel editing</X>}
