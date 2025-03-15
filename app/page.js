@@ -286,9 +286,10 @@ export default function Home() {
                 {isAdmin || createrEmails[user.id] ? (
                   <>
                     <Trash2 onClick={() => deleteUser(user.id)}>Delete</Trash2>
-                    <a href="#form">
-                      <Pencil onClick={() => handleEdit(user)} />
-                    </a>
+                    <Pencil onClick={() => {
+                      handleEdit(user);
+                      document.getElementById("form")?.scrollIntoView({ behavior: "smooth" });
+                    }} />
                   </>
                 ) : null}
               </Row>
