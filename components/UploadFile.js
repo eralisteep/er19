@@ -2,12 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { Eye, RotateCcw, Upload } from "lucide-react";
 
-const TELEGRAM_BOT_TOKEN = "7629632078:AAFwGMwD36V1-NyDvLoPhc9ZMrxr2LD96GI";
+const TG_BOT_KEY = process.env.NEXT_PUBLIC_TG_BOT_KEY;
 
 const getFilePath = async (fileId) => {
   try {
-    const response = await axios.get(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getFile?file_id=${fileId}`);
-    return `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${response.data.result.file_path}`;
+    const response = await axios.get(`https://api.telegram.org/bot${TG_BOT_KEY}/getFile?file_id=${fileId}`);
+    return `https://api.telegram.org/file/bot${TG_BOT_KEY}/${response.data.result.file_path}`;
   } catch (error) {
     console.error("Ошибка получения пути файла:", error);
     return null;
