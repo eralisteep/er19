@@ -19,7 +19,7 @@ import { checkRole } from "@/components/CheckRole";
 import { checkCreater } from "@/components/CheckCreater";
 import UploadFile from "@/components/UploadFile";
 
-const TELEGRAM_BOT_TOKEN = "7629632078:AAFwGMwD36V1-NyDvLoPhc9ZMrxr2LD96GI";
+const TELEGRAM_BOT_TOKEN = process.env.NEXT_PUBLIC_TG_BOT_KEY;
 const TELEGRAM_CHAT_ID = "-4706850495";
 
 export default function Home() {
